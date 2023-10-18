@@ -24,7 +24,7 @@ RUN         apk update && apk add --no-cache \
             && rm /bin/sh && ln -s /bin/bash /bin/sh
             # Fixes a bug where /bin/sh on alpine can't do <<<.
 
-COPY        ./layer /
+COPY        ./docker/layer /
 
 EXPOSE      80 443
 ENTRYPOINT ["/init.sh"]
