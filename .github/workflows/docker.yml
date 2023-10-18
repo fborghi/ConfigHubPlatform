@@ -35,4 +35,5 @@ jobs:
           build-args: | 
               VERSION=1.10.6 
               DB_VERSION=1.9.2
+              no-cache
 
