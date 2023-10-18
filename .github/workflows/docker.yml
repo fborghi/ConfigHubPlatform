@@ -32,8 +32,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: | 
-              VERSION=1.10.6 
-              DB_VERSION=1.9.2
-              no-cache
+          build-args: no-cache
 
