@@ -1,5 +1,0 @@
-name: 'Build docker image'
-description: "Build docker image from current commit"
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
