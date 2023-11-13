@@ -35,6 +35,7 @@ A docker image for [ConfigHub](https://www.confighub.com/).
 Execute with following:
 ```
 docker run -d \
+
     -p 8080:80 \
     -p 8443:443 \
     -e DB_TYPE=mysql \
