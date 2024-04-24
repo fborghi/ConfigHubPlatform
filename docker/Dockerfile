@@ -21,8 +21,7 @@ RUN         apk update && apk add --no-cache \
             && unzip ROOT.zip \
             && rm ROOT.zip \
             && mv ROOT confighub\server \
-            && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar  \
-            && rm /bin/sh && ln -s /bin/bash /bin/sh
+            && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar
             # Fixes a bug where /bin/sh on alpine can't do <<<.
 
 COPY        ./docker/layer /
