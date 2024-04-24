@@ -18,11 +18,13 @@ RUN         apk update && apk add --no-cache \
             && pip install supervisor \
             && mkdir /var/log/supervisord \
             && echo 'File List' \
-            && ls -la\
+            && ls -la \
             # Fetch latest tagged versions if not specified
-            && unzip ROOT.zip ROOT \
+            && unzip ROOT.zip -d ROOT \
             && rm ROOT.zip \
-            && mv ROOT confighub\server \
+            && mkdir confighub \
+            && mkdir confighub/server \
+            && mv ROOT confighub/server \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v1.9.2/ConfigHubDBManager-1.9.2.jar
             # Fixes a bug where /bin/sh on alpine can't do <<<.
 
