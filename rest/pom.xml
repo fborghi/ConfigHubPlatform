@@ -15,7 +15,6 @@
     <packaging>war</packaging>
 
     <dependencies>
-
         <dependency>
             <groupId>ConfigHub</groupId>
             <artifactId>ConfigHub-Core</artifactId>
@@ -87,10 +86,10 @@
 
         <plugins>
 
-            <!-- <plugin>
+            <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.5.1</version>
                 <executions>
                     <execution>
                         <goals>
@@ -106,7 +105,7 @@
                         <exclude>framework/**/*</exclude>
                     </excludes>
                 </configuration>
-            </plugin> -->
+            </plugin>
 
             <!--TomEE-->
             <plugin>
