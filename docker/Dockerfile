@@ -13,6 +13,7 @@ RUN         apk update && apk add --no-cache \
                 py-pip \
                 python \
                 wget \
+                unzip \
             && pip install supervisor \
             && mkdir /var/log/supervisord \
             # Fetch latest tagged versions if not specified
