@@ -20,10 +20,10 @@ RUN         apk update && apk add --no-cache \
             && echo 'File List' \
             && ls -la \
             # Fetch latest tagged versions if not specified
-            && unzip ROOT.zip -d ROOT \
-            && rm ROOT.zip \
             && mkdir confighub \
             && mkdir confighub/server \
+            && unzip ROOT.zip -d confighub/server \
+            && rm ROOT.zip \
             && mv ROOT confighub/server \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v1.9.2/ConfigHubDBManager-1.9.2.jar
             # Fixes a bug where /bin/sh on alpine can't do <<<.
