@@ -7,8 +7,8 @@
   -->
 
 <project xmlns="https://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -50,7 +50,8 @@
             <version>1.0.2.Final</version>
         </dependency>
 
-        <!--MySQL JDBC Connector-->
+        <!--MySQL
+        JDBC Connector-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -90,7 +91,8 @@
             <version>23.0</version>
         </dependency>
 
-        <!--Apache Commons-->
+        <!--Apache
+        Commons-->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
@@ -170,7 +172,6 @@
             <version>1.4.197</version>
             <scope>test</scope>
         </dependency>
-
 
 
     </dependencies>
