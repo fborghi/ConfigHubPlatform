@@ -6,13 +6,14 @@ ARG         DB_VERSION
 
 COPY        ./rest/target/ROOT.zip .
 
-RUN         apk update && apk add --no-cache \
+RUN         apt update && apt install --no-cache \
                 bash \
                 curl \
                 gettext \
                 py-pip \
                 python \
                 wget \
+                zip \
                 unzip \
             && pip install supervisor \
             && mkdir /var/log/supervisord \
