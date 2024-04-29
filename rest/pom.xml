@@ -115,7 +115,7 @@
                 <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <debug>false</debug>
-                    <tomeeClassifier>jaxrs</tomeeClassifier>
+                    <tomeeClassifier>plus</tomeeClassifier>
                 </configuration>
             </plugin>
 
