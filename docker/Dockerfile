@@ -10,8 +10,8 @@ RUN         apt update && apt install \
                 bash \
                 curl \
                 gettext \
-                python \
-                python3-pip \
+                python <<'EOF' y EOF\
+                python3-pip <<'EOF' y EOF\
                 wget \
                 zip \
                 unzip \
