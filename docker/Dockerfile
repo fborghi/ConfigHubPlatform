@@ -1,4 +1,4 @@
-FROM        openjdk:21-jdk-slim-bullseye
+FROM        openjdk:19-alpine
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
@@ -6,12 +6,12 @@ ARG         DB_VERSION
 
 COPY        ./rest/target/ROOT.zip .
 
-RUN         apt update && apt install -y \
+RUN         apk update && apk add --no-cache \
                 bash \
                 curl \
                 gettext \
+                py-pip \
                 python \
-                python3-pip \
                 wget \
                 zip \
                 unzip \
