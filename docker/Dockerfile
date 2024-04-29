@@ -1,4 +1,4 @@
-FROM        openjdk:8-alpine
+FROM        openjdk:22-jdk
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
