@@ -6,12 +6,12 @@ ARG         DB_VERSION
 
 COPY        ./rest/target/ROOT.zip .
 
-RUN         apt update && apt install \
+RUN         apt update && apt install -y \
                 bash \
                 curl \
                 gettext \
-                python <<'EOF' y EOF \
-                python3-pip <<'EOF' y EOF \
+                python \
+                python3-pip \
                 wget \
                 zip \
                 unzip \
