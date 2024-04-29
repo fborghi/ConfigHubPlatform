@@ -25,7 +25,7 @@ RUN         apk update && apk add --no-cache \
             && unzip ROOT.zip -d confighub/server \
             && rm ROOT.zip \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v1.9.2/ConfigHubDBManager-1.9.2.jar \
-            && rm /bin/sh && ln -s /bin/bash /bin/sh \
+            # && rm /bin/sh && ln -s /bin/bash /bin/sh \
             && chmod -R +x /confighub/server
             # Fixes a bug where /bin/sh on alpine can't do <<<.
 
