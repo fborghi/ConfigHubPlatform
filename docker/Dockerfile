@@ -11,7 +11,7 @@ RUN         apk update && apk add --no-cache \
                 curl \
                 gettext \
                 py-pip \
-                python \
+                python3 \
                 wget \
                 zip \
                 unzip \
