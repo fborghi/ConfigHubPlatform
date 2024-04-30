@@ -4,7 +4,7 @@ FROM        amazoncorretto:11-alpine3.18-jdk
 ARG         VERSION
 ARG         DB_VERSION
 
-COPY        ./rest/target/ROOT.zip .
+COPY        ./rest/target/apache-tomee/ /confighub/server/
 
 RUN         apk update && apk add --no-cache \
                 bash \
@@ -20,10 +20,6 @@ RUN         apk update && apk add --no-cache \
             && echo 'File List' \
             && ls -la \
             # Fetch latest tagged versions if not specified
-            && mkdir confighub \
-            && mkdir confighub/server \
-            && unzip ROOT.zip -d confighub/server \
-            && rm ROOT.zip \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v1.9.2/ConfigHubDBManager-1.9.2.jar \
             && rm /bin/sh && ln -s /bin/bash /bin/sh \
             && chmod -R +x /confighub/server
