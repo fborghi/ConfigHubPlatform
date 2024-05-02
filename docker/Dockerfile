@@ -1,4 +1,4 @@
-FROM        amazoncorretto:8u412-alpine3.19-jre
+FROM        amazoncorretto:8u412-alpine3.19
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
@@ -17,7 +17,6 @@ RUN         apk update && apk add --no-cache \
                 unzip \
             && pip install supervisor \
             && mkdir /var/log/supervisord \
-            && echo 'File List' \
             && ls -la \
             # Fetch latest tagged versions if not specified
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v1.9.2/ConfigHubDBManager-1.9.2.jar \
