@@ -10,7 +10,7 @@ RUN         apk update && apk add --no-cache \
                 bash \
                 curl \
                 gettext \
-                py-pip \
+                py3-pip \
                 python3 \
                 wget \
                 zip \
