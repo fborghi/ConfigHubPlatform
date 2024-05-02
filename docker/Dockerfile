@@ -1,4 +1,4 @@
-FROM        amazoncorretto:11-alpine3.18-jdk
+FROM        amazoncorretto:8u412-alpine3.19-jre
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
