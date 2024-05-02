@@ -1,4 +1,4 @@
-FROM        amazoncorretto:8u412-alpine3.19
+FROM        amazoncorretto:11.0.23-alpine3.18
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
@@ -10,7 +10,7 @@ RUN         apk update && apk add --no-cache \
                 bash \
                 curl \
                 gettext \
-                py3-pip \
+                py-pip \
                 python3 \
                 wget \
                 zip \

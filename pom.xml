@@ -17,5 +17,6 @@
     </modules>
     <properties>
         <revision>1.11.0</revision>
+        <tomcat.version>7.0.81</tomcat.version>
     </properties>
 </project>
