@@ -5,8 +5,8 @@ ARG         VERSION
 ARG         DB_VERSION
 
 COPY        ./rest/target/ROOT.war /webapps/confighub.war
-COPY        ./docker/lib/* /lib
-COPY        ./docker/cert /cert
+COPY        ./docker/config/lib/* /lib
+COPY        ./docker/config/cert /cert
 
 RUN         if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/ConfigHubPlatform/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && if [ -z $DB_VERSION ]; then DB_VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/Database-Manager/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
