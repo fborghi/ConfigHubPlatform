@@ -28,4 +28,4 @@ echo "Initializing database..."
 # java -jar /ConfigHubDBManager.jar -t "${DB_TYPE}" -r "${DB_URL}" -u"${DB_USERNAME}" -p"${DB_PASSWORD}" || exit $?
 
 echo "Starting service..."
-./bin/catalina.sh 
+./bin/catalina.sh run
