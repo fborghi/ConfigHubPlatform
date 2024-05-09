@@ -17,4 +17,3 @@ RUN         if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/re
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar
 
 EXPOSE      80 443
-ENTRYPOINT ["/bin/catalina.sh"]
