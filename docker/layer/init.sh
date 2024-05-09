@@ -13,8 +13,7 @@ case ${DB_TYPE} in
 esac
 
 echo "Writing database credentials to /confighub/server/conf/tomee.xml"
-envsubst < /usr/local/tomee/config/conf/tomee.xml > /usr/local/tomee/conf/tomee.xml
-envsubst < /usr/local/tomee/config/conf/server.xml > /usr/local/tomee/conf/server.xml
+envsubst < /usr/local/tomee/conf/tomee.xml > /usr/local/tomee/conf/tomee.xml
 
 export ALLOCATED_MEMORY=${ALLOCATED_MEMORY:-4g}
 export HTTP_PORT=${HTTP_PORT:-80}
