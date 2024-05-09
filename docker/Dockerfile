@@ -17,4 +17,4 @@ COPY        ./docker/config/conf/* /usr/local/tomee/conf/
 
 EXPOSE      80 443
 
-ENTRYPOINT [ "/init.sh" ]
+# ENTRYPOINT [ "/init.sh" ]
