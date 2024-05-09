@@ -11,7 +11,7 @@ RUN         if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/re
             && if [ -z $DB_VERSION ]; then DB_VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/Database-Manager/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar
 
-            COPY ./docker/init.sh /init.sh
+            COPY ./docker/layer/init.sh /init.sh
 EXPOSE      80 443
 
 ENTRYPOINT [ "/init.sh" ]
