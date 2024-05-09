@@ -13,7 +13,8 @@ case ${DB_TYPE} in
 esac
 
 echo "Writing database credentials to /confighub/server/conf/tomee.xml"
-envsubst < /var/tpl/tomee.xml > /confighub/server/conf/tomee.xml
+envsubst < /config/conf/tomee.xml > /conf/tomee.xml
+envsubst < /config/conf/server.xml > /conf/server.xml
 
 export ALLOCATED_MEMORY=${ALLOCATED_MEMORY:-4g}
 export HTTP_PORT=${HTTP_PORT:-80}
@@ -23,11 +24,8 @@ export KEYSTORE_FILE=${KEYSTORE_FILE:-cert/confighub_default.jks}
 export KEYSTORE_ALIAS=${KEYSTORE_ALIAS:-confighub}
 export KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD:-confighub}
 
-echo "Writing server configuration to confighub/confighub.sh"
-envsubst < /var/tpl/confighub.sh > /confighub/confighub.sh
-
 echo "Initializing database..."
 java -jar /ConfigHubDBManager.jar -t "${DB_TYPE}" -r "${DB_URL}" -u"${DB_USERNAME}" -p"${DB_PASSWORD}" || exit $?
 
 echo "Starting service..."
-supervisord --nodaemon --configuration /etc/supervisord.conf
+./bin/catalina.sh 
