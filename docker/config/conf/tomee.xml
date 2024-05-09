@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomee>
     <Resource id="ConfigHubMainDS" type="DataSource">
-        JdbcDriver = com.mysql.jdbc.Driver
-        JdbcUrl = jdbc:mysql://localhost:3305/ConfigHub
-        UserName = root
-        Password = root
+        JdbcDriver = ${DB_DRIVER}
+        JdbcUrl = ${DB_URL}
+        UserName = ${DB_USERNAME}
+        Password = ${DB_PASSWORD}
 
         JtaManaged = false
         validationQuery = SELECT 1
