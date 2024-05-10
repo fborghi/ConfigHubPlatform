@@ -1,4 +1,4 @@
-FROM        tomee:8.0.16-plus
+FROM        tomee:8-jre-1.7.4-plus
 
 # Can set version arguments with --build-arg when calling 'docker build'
 ARG         VERSION
