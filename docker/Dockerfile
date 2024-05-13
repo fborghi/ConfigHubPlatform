@@ -27,7 +27,8 @@ RUN set -eux \
     && yum install -y java-1.8.0-amazon-corretto-devel-$version \
     && (find /usr/lib/jvm/java-1.8.0-amazon-corretto -name src.zip -delete || true) \
     && yum install -y fontconfig \
-    && yum clean all\
+    && yum install -y gettext-base \
+    && yum clean all \
     && mkdir server
 
 ENV LANG C.UTF-8
@@ -36,9 +37,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
 
 COPY        ./rest/target/apache-tomee/* /server
 
-RUN         apt-get update \
-            && apt-get -y install gettext-base \
-            && if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/ConfigHubPlatform/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
+RUN         if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/ConfigHubPlatform/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && if [ -z $DB_VERSION ]; then DB_VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/Database-Manager/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar
 
