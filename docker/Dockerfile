@@ -2,18 +2,7 @@
 FROM amazonlinux:2
 
 ARG version=1.8.0_412.b08-1
-# In addition to installing the Amazon corretto, we also install
-# fontconfig. The folks who manage the docker hub's
-# official image library have found that font management
-# is a common usecase, and painpoint, and have
-# recommended that Java images include font support.
-#
-# See:
-#  https://github.com/docker-library/official-images/blob/master/test/tests/java-uimanager-font/container.java
 
-# The logic and code related to Fingerprint is contributed by @tianon in a Github PR's Conversation
-# Comment = https://github.com/docker-library/official-images/pull/7459#issuecomment-592242757
-# PR = https://github.com/docker-library/official-images/pull/7459
 RUN set -eux \
     && export GNUPGHOME="$(mktemp -d)" \
     && curl -fL -o corretto.key https://yum.corretto.aws/corretto.key \
@@ -29,22 +18,23 @@ RUN set -eux \
     && yum install -y fontconfig \
     && yum install -y gettext \
     && yum install -y wget \
-    && yum clean all \
-    && mkdir server
+    && yum clean all
 
-ENV LANG C.UTF-8
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+ENV         LANG C.UTF-8
+ENV         JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
 
+WORKDIR     /usr/local/src
+COPY        ./rest/target/apache-tomee confighub/
 
-COPY        ./rest/target/apache-tomee/* /server
+WORKDIR     /usr/local/src/confighub
 
 RUN         if [ -z $VERSION ]; then VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/ConfigHubPlatform/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && if [ -z $DB_VERSION ]; then DB_VERSION=$(curl -s https://api.github.com/repos/ConfigHubPub/Database-Manager/releases/latest | grep tag_name | grep -oe '[\.0-9]*'); fi \
             && wget -O ConfigHubDBManager.jar -q https://github.com/ConfigHubPub/Database-Manager/releases/download/v${DB_VERSION}/ConfigHubDBManager-${DB_VERSION}.jar
 
-COPY        ./docker/layer/init.sh /usr/local/tomee/init.sh
-COPY        ./docker/config/cert /usr/local/tomee/cert
+COPY        ./docker/layer/init.sh init.sh
+COPY        ./docker/config/cert cert/
 
 EXPOSE      80 443
 
-ENTRYPOINT [ "/usr/local/tomee/init.sh" ]
+ENTRYPOINT [ "init.sh" ]
