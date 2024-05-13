@@ -27,11 +27,11 @@ RUN set -eux \
     && yum install -y java-1.8.0-amazon-corretto-devel-$version \
     && (find /usr/lib/jvm/java-1.8.0-amazon-corretto -name src.zip -delete || true) \
     && yum install -y fontconfig \
-    && yum clean all
+    && yum clean all\
+    && mkdir server
 
 ENV LANG C.UTF-8
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
-
 
 
 COPY        ./rest/target/apache-tomee/* /server
