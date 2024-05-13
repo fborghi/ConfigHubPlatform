@@ -12,8 +12,8 @@ case ${DB_TYPE} in
     *)          echo "DB_TYPE not valid!" && exit 1
 esac
 
-echo "Writing database credentials to /confighub/server/conf/tomee.xml"
-envsubst < /usr/local/tomee/conf/tomee.xml
+echo "Writing database credentials to ./conf/tomee.xml"
+envsubst < ./conf/tomee.xml
 
 export ALLOCATED_MEMORY=${ALLOCATED_MEMORY:-4g}
 export HTTP_PORT=${HTTP_PORT:-80}
