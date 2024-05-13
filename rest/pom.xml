@@ -107,22 +107,28 @@
                 </configuration>
             </plugin>
 
-            <!--TomEE-->
             <plugin>
-                <groupId>org.apache.openejb.maven</groupId>
+                <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>${tomee.version}</version>
                 <configuration>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
-                    <tomeeClassifier>jaxrs</tomeeClassifier>
+                    <tomeeClassifier>plus</tomeeClassifier>
+                    <libs>
+                        <lib>mysql:mysql-connector-java:5.1.44</lib>
+                        <lib>org.postgresql:postgresql:42.1.4</lib>
+                    </libs>
+                    <webapps>
+                        <webapp>ConfigHub:ConfigHub-Rest:1.10.6?name=ROOT</webapp>
+                    </webapps>
                 </configuration>
-            </plugin>
 
+            </plugin>
         </plugins>
     </build>
 
     <properties>
-        <tomee.version>1.7.2</tomee.version>
+        <tomee.version>8.0.0</tomee.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>

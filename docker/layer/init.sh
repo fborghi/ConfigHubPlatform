@@ -25,6 +25,5 @@ export KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD:-confighub}
 
 echo "Initializing database..."
 java -jar ConfigHubDBManager.jar -t "${DB_TYPE}" -r "${DB_URL}" -u"${DB_USERNAME}" -p"${DB_PASSWORD}" || exit $?
-rm -rf ./webapps/ROOT
 
-./bin/catalina.sh run
+./server/bin/catalina.sh run
