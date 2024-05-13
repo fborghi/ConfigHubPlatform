@@ -28,6 +28,7 @@ RUN set -eux \
     && (find /usr/lib/jvm/java-1.8.0-amazon-corretto -name src.zip -delete || true) \
     && yum install -y fontconfig \
     && yum install -y gettext \
+    && yum install -y wget \
     && yum clean all \
     && mkdir server
 
