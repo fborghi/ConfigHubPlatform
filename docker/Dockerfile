@@ -37,4 +37,4 @@ COPY        ./docker/config/cert cert/
 
 EXPOSE      80 443
 
-ENTRYPOINT [ "init.sh" ]
+# ENTRYPOINT [ "init.sh" ]
